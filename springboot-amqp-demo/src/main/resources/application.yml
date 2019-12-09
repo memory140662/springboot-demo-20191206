@@ -1,0 +1,10 @@
+spring:
+  rabbitmq:
+    host: ${MQ_HOST:localhost}
+    username: ${MQ_USERNMAE:guest}
+    password: ${MQ_PASSWORD:guest}
+    port: ${MQ_PORT:5672}
+    virtual-host: ${MQ_VIRTUAL_HOST:/}
+
+server:
+  port: 8002
