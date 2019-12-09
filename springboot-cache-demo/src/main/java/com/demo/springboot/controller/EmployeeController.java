@@ -4,6 +4,7 @@ import com.demo.springboot.bean.Employee;
 import com.demo.springboot.service.EmployeeService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,5 +37,10 @@ public class EmployeeController {
     @GetMapping("/emp/lastname/{lastName}")
     public Employee getEmpByLastName(@PathVariable String lastName) {
         return employeeService.getEmpByLastName(lastName);
+    }
+
+    @GetMapping("/emp/list")
+    public Page<Employee> getAll() {
+        return employeeService.getAll();
     }
 }

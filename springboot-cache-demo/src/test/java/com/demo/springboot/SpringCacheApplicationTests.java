@@ -2,15 +2,12 @@ package com.demo.springboot;
 
 import com.demo.springboot.bean.Employee;
 import com.demo.springboot.repository.EmployeeRepository;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
-
-import java.util.Optional;
 
 @SpringBootTest
 @RequiredArgsConstructor
@@ -23,7 +20,7 @@ public class SpringCacheApplicationTests {
     StringRedisTemplate stringRedisTemplate;
 
     @Autowired
-    RedisTemplate<Object, Employee> redisTemplate;
+    RedisTemplate redisTemplate;
 
     @Test
     public void contextLoads() {
@@ -45,9 +42,10 @@ public class SpringCacheApplicationTests {
 
     @Test
     public void test02() {
-//        Employee employee = employeeRepository.findEmployeeById(1);
-//        redisTemplate.opsForValue().set("emp-01", employee);
-        Employee employee = (Employee) redisTemplate.opsForValue().get("emp-01");
+        Employee employee = employeeRepository.findEmployeeById(1);
+        redisTemplate.opsForValue().set("emp-01", employee);
+
+        employee = (Employee) redisTemplate.opsForValue().get("emp-01");
         System.out.println(employee);
     }
 }

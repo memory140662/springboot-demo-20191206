@@ -4,9 +4,14 @@ import com.demo.springboot.bean.Employee;
 import com.demo.springboot.repository.EmployeeRepository;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import lombok.val;
 import org.springframework.cache.annotation.*;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
 @Service
@@ -14,6 +19,9 @@ import javax.transaction.Transactional;
 @Transactional
 @CacheConfig(cacheNames = "emp")
 public class EmployeeService {
+
+    @NonNull
+    EntityManager entityManager;
 
     @NonNull private EmployeeRepository employeeRepository;
 
@@ -60,5 +68,11 @@ public class EmployeeService {
     )
     public Employee getEmpByLastName(String lastName) {
         return employeeRepository.findEmployeeByLastName(lastName);
+    }
+
+    public Page<Employee> getAll() {
+        val sort = Sort.by("id").descending();
+        val pageable = PageRequest.of(0, 100, sort);
+        return employeeRepository.findAll(pageable);
     }
 }
