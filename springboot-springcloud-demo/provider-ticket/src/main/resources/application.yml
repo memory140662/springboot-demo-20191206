@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: provider-ticket
+  profiles:
+    active: 8072
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8071/eureka
+
+--- # 8072
+server:
+  port: 8072
+spring:
+  profiles: 8072
+
+--- # 8073
+server:
+  port: 8073
+spring:
+  profiles: 8073
+
