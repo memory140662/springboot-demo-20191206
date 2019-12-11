@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.demo.springboot</groupId>
-        <artifactId>springboot-demo-20191206</artifactId>
+        <artifactId>springboot-dubbo-demo</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>springboot-task-demo</artifactId>
+    <artifactId>provider-ticket</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot-async-demo</name>
+    <name>provider-ticket</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -18,13 +18,43 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+            <version>${dubbo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-dependencies-zookeeper</artifactId>
+            <version>${dubbo.version}</version>
+            <type>pom</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.curator</groupId>-->
+<!--            <artifactId>curator-framework</artifactId>-->
+<!--            <version>4.0.1</version>-->
+<!--        </dependency>-->
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-mail</artifactId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

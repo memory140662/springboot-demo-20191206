@@ -1,0 +1,10 @@
+server:
+  port: 8061
+
+dubbo:
+  application:
+    name: provider-ticket
+  registry:
+    address: zookeeper://localhost:2181
+  scan:
+    base-packages: com.demo.springboot.service.impl

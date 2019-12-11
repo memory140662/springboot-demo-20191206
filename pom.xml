@@ -8,6 +8,8 @@
         <module>springboot-elasticsearch-demo</module>
         <module>springboot-task-demo</module>
         <module>springboot-security-demo</module>
+        <module>springboot-dubbo-demo</module>
+        <module>springboot-dubbo-demo</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
