@@ -1,0 +1,16 @@
+
+management:
+    endpoint:
+      shutdown:
+        enabled: true
+      health:
+        show-details: always
+    endpoints:
+      web:
+        exposure:
+          include: "*"
+server:
+  port: 8008
+
+
+
