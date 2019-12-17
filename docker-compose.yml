@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  cache:
+    build: ./springboot-cache-demo
+    ports:
+      - 8001:8001
+    environment:
+      REDIS_HOST: ${IP}
+      DB_HOST: ${IP}
+    container_name: cache-demo
