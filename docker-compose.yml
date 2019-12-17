@@ -19,8 +19,6 @@ services:
 # docker network connect MYSQL_NETWORK_ID MYSQL_CONTAINER_NAME
 networks:
   redis:
-    external:
-      name: redis
+    external: true
   mysql:
-    external:
-      name: mysql
+    external: true
