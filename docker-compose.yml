@@ -13,6 +13,10 @@ services:
       - mysql
       - redis
 
+# docker network create redis
+# docker network connect REDIS_NETWORK_ID REDIS_CONTAINER_NAME
+# docker network create mysql
+# docker network connect MYSQL_NETWORK_ID MYSQL_CONTAINER_NAME
 networks:
   redis:
     external:
